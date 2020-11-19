@@ -7,6 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap">
     <link rel="stylesheet" href="/css/employeePayroll_form.css">
     <title>Employee Payroll Form</title>
+    <script src="/js/NewEmpPayroll.js"></script>
+    <script defer src="/js/EmployeePayroll.js"></script>
+    
 </head>
 
 <body>
@@ -26,6 +29,7 @@
             <div class="row-content">
                 <label class="label text" for="name">Name</label>
                 <input class="input" type="text" id="name" name="name" placeholder="Your name is..." required>
+                <error-output class="text-error" for="text"></error-output>
             </div>
             <div class="row-content">
                 <label class="label text" for="profile">Profile image</label>
@@ -79,7 +83,7 @@
             <div class="row-content">
                 <label class="label text" type="salary">Select salary: </label>
                 <input class="input" type="range" id="salary" name="salary" min="300000" max="500000" step="1000"
-                    value="40000">
+                    value="40000" required>
                 <output class="salary-output text" for="salary">400000</output>
             </div>
             <div class="row-content">
@@ -141,10 +145,12 @@
                         <option value="2016">2016</option>
                     </select>
                 </div>
+                <error-output class="date-error" for="text"></error-output>
             </div>
             <div class="row-content">
                 <label class="label text" for="notes">Notes</label>
-                <textarea id="notes" class="input" name="Notes" placeholder="" style="height:100px"></textarea>
+                <textarea id="notes" class="input" name="Notes" placeholder="..." style="height:100px"
+                    required></textarea>
             </div>
             <div class="buttonParent">
                 <a href="./home.html" class="resetButton button cancelButton">Cancel</a>
@@ -155,8 +161,6 @@
             </div>
         </form>
     </div>
-    <script src="/js/employeeSalary.js">
-    </script>
 </body>
 
 </html>
