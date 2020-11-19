@@ -4,7 +4,10 @@ class EmployeePayrollData {
     return this._id;
   }
   set id(id) {
-    this._id = id;
+    let IdRegex = RegExp('^[0-9]{1,}$');
+    if (IdRegex.test(id)){
+    this._id = id;}
+    else throw "Incorrect Id"
   }
   get name() {
     return this._name;
