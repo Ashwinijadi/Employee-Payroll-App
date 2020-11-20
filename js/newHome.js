@@ -3,9 +3,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
 const createInnerHtml = () => {
-    const headerHtml=" <th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>Start Date</th><th>Actions</th>"
-  let empPayrollData=createEmployeePayrollJSON()[1];
-    const innerHtml = `${headerHtml}
+    const headerHtml=" <th></th><th>Name</th><th>Gender</th><th>Department</th><th>"+
+    "<Salary</th><th>Start Date</th><th>Actions</th>"
+    let innerHtml = `${headerHtml}`;
+    let empPayrollList=createEmployeePayrollJSON();
+    for(const empPayrollData of empPayrollList){
+        innerHtml =`${innerHtml}
     <tr>
         <td><img class="profile" alt="" src="${empPayrollData._profile}"></td>
         <td>${empPayrollData._name}</td>
@@ -14,10 +17,11 @@ const createInnerHtml = () => {
         <td>${empPayrollData._salary}</td>
         <td>${empPayrollData._startDate}</td>
         <td><img name=${empPayrollData._id} onclick="remove(this)" alt="delete" src="/assets/delete-black-18dp.svg">
-            <img id="1" alt="edit" onclick="update(this)" src="/assets/create-black-18dp.svg">
+            <img name=${empPayrollData._id} alt="edit" onclick="update(this)" src="/assets/create-black-18dp.svg">
         </td>
     </tr>
 `;
+    }
     document.querySelector('#table-display').innerHTML = innerHtml;
 }
 const createEmployeePayrollJSON = () => {
