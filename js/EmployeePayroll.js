@@ -48,6 +48,7 @@ const save = () => {
 }
 
 function createAndUpdateStorage(employeePayrollData) {
+  localStorage.clear();
 let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
 if (employeePayrollList != undefined) {
   employeePayrollList.push(employeePayrollData);
