@@ -100,6 +100,7 @@ const resetForm = () => {
   setValue('#month', '0');
   setValue('#year', '0');
 }
+
 const unsetSelectedValues = (propertyValue) => {
   let allItems = document.querySelectorAll(propertyValue);
   allItems.forEach(item => {
