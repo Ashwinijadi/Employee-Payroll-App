@@ -1,15 +1,7 @@
 
 class EmployeePayrollData {
-  get id() {
-    return this._id;
-  }
-  set id(id) {
-    let IdRegex = RegExp('^[0-9]{1,}$');
-    if (IdRegex.test(id)) {
-      this._id = id;
-    }
-    else throw "Incorrect Id"
-  }
+  id;
+  
   get name() {
     return this._name;
   }
@@ -60,7 +52,7 @@ class EmployeePayrollData {
   set startDate(startDate) {
     let now=new Date();
     if (startDate >now) throw "StartDate is FutureDate!!" ;
-    var diff =math.abs(now.getTime()-startDate.getTime());
+    var diff =Math.abs(now.getTime()-startDate.getTime());
     if(diff/(1000*60*60*24)>30)
          throw " StartDate is beyond 30 days";
     this._startDate=startDate;

@@ -7,9 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap">
     <link rel="stylesheet" href="/css/employeePayroll_form.css">
     <title>Employee Payroll Form</title>
-    <script defer src="/js/NewEmpPayroll.js"></script>
+    <script defer src="/js/utility.js"></script>
+    <script defer src="/js/siteProperties.js"></script>
     <script defer src="/js/EmployeePayroll.js"></script>
-
+    <script defer src="/js/http_service.js"></script>
+</body>
 </head>
 
 <body>
@@ -23,7 +25,7 @@
         </div>
     </header>
     <div id="formId" class="form-content">
-        <form class="form" action="#" onreset="resetForm()" onsubmit="save()">
+        <form class="form" action="#" onreset="resetForm()" onsubmit="save(event)">
             <div class="form-head">Employee Payroll Form</div>
             <div class="row-content">
                 <label class="label text" for="id">ID</label>
@@ -39,24 +41,24 @@
                 <label class="label text" for="profile">Profile image</label>
                 <div class="profile-radio-content">
                     <label>
-                        <input type="radio" id="profile1" name="profile" value="../assets/profile-images/Ellipse -3.png"
+                        <input type="radio" id="profile1" name="profile" value="../assets/Ellipse -1.png"
                             required>
-                        <img class="profile" id="image1" src="/assets/profilePhoto1.png">
+                        <img class="profile" id="image1" src="/assets/Ellipse -1.png">
                     </label>
                     <label>
-                        <input type="radio" id="profile2" name="profile" value="../assets/profile-images/Ellipse -3.png"
+                        <input type="radio" id="profile2" name="profile" value="../assets/Ellipse -2.png"
                             required>
-                        <img class="profile" id="image1" src="/assets/profilePhoto2.png">
+                        <img class="profile" id="image1" src="/assets/Ellipse -2.png">
                     </label>
                     <label>
-                        <input type="radio" id="profile3" name="profile" value="../assets/profile-images/Ellipse -3.png"
+                        <input type="radio" id="profile3" name="profile" value="../assets/Ellipse -3.png"
                             required>
-                        <img class="profile" id="image1" src="/assets/profilePhoto3.png">
+                        <img class="profile" id="image1" src="/assets/Ellipse -3.png">
                     </label>
                     <label>
-                        <input type="radio" id="profile4" name="profile" value="../assets/profile-images/Ellipse -3.png"
+                        <input type="radio" id="profile4" name="profile" value="../assets/Ellipse -4.png"
                             required>
-                        <img class="profile" id="image1" src="/assets/profilePhoto4.png">
+                        <img class="profile" id="image1" src="/assets/Ellipse -4.png">
                     </label>
                 </div>
             </div>
@@ -85,14 +87,14 @@
                 </div>
             </div>
             <div class="row-content">
-                <label class="label text" type="salary">Select salary: </label>
+                <label class="label text" type="salary">Select Salary</label>
                 <input class="input" type="range" id="salary" name="salary" min="300000" max="500000" step="1000"
                     value="40000" required>
                 <output class="salary-output text" for="salary">400000</output>
             </div>
             <div class="row-content">
                 <label class="label text" for="startDate">StartDate</label>
-                <div>
+                <div id="date">
                     <select id="day" name="Day">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -149,7 +151,7 @@
                         <option value="2016">2016</option>
                     </select>
                 </div>
-                <error-output class="date-error" for="number"></error-output>
+                <error-output class="date-error" for="startDate"></error-output>
             </div>
             <div class="row-content">
                 <label class="label text" for="notes">Notes</label>
