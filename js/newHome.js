@@ -29,8 +29,7 @@ const getEmployeePayrollDataFromServer=() =>{
 });
 }
 const createInnerHtml = () => {
-    const headerHtml=" <th></th><th>Name</th><th>Gender</th><th>Department</th><th>"+
-    "<Salary</th><th>Start Date</th><th>Actions</th>"
+    const headerHtml="<th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>Start Date</th><th>Actions</th>"
     if(empPayrollList.length==0) return;
         let innerHtml = `${headerHtml}`;
     for(const empPayrollData of empPayrollList){
@@ -49,36 +48,6 @@ const createInnerHtml = () => {
 `;
     }
     document.querySelector('#table-display').innerHTML = innerHtml;
-}
-
-const createEmployeePayrollJSON = () => {
-    let empPayrollListLocal = [{
-            _name: 'Narayan Mahadevan',
-            _gender: 'male',
-            _department: [
-                'HR',
-                'Finance'
-            ],
-            _salary: '500000',
-            _startDate: '29 Oct 2019',
-            _note: '',
-            id: new Date().getTime(),
-            _profile: '/assets/Ellipse -3.png'
-        },
-        {
-            _name: 'Keerthi Kumar',
-            _gender: 'female',
-            _department: [
-                'Sales'
-            ],
-            _salary: '400000',
-            _startDate: '29 Oct 2019',
-            _note: '',
-            id: new Date().getTime() + 1,
-            _profile: '/assets/Ellipse -1.png'
-        }
-    ];
-    return empPayrollListLocal;
 }
 
 const getDeptHtml = (deptList) => {
